@@ -1,0 +1,12 @@
+{
+  "name": "case_converter",
+  "version": "1.0.0",
+  "description": "This package is used to convert strings to a specific case.",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.test.js"
+  }
+}
