@@ -12,6 +12,33 @@ app.get("/", (_req, res) => {
 });
 
 // Do not change code above this line
+app.get("/api", (req, res) => {
+	const now = new Date();
+	res.json({
+		unix: now.getTime(),
+		utc: now.toUTCString()
+	});
+});
+
+app.get("/api/{:date}", (req, res) => {
+	const dateParam = req.params.date;
+	let date;
+
+	if (/^\d+$/.test(dateParam)) {
+		date = new Date(parseInt(dateParam, 10));
+	} else {
+		date = new Date(dateParam);
+	}
+
+	if (isNaN(date.getTime())) {
+		return res.json({ error: "Invalid Date" });
+	}
+
+	res.json({
+		unix: date.getTime(),
+		utc: date.toUTCString()
+	});
+});
 
 // Do not change code below this line
 
